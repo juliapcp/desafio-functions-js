@@ -1,6 +1,5 @@
 // trim.js // 0.4 pts
 
-// 0.1 pts // easy
 function trimLeft(txt){
     let i = 0;
     while(txt[i] === ' '){
@@ -8,10 +7,18 @@ function trimLeft(txt){
     }
     return txt;
 }
-
-function trimRight (txt){
-    while()
+function trimRight(txt) {
+    for (let i = txt.length - 1; i >= 0 && (txt[i] === ' '); i--) {
+        txt = txt.substring(0, i);
+    }
+    return txt;
 }
+
+function trim (txt){
+    return trimLeft(trimRight(txt));
+}
+
+// 0.1 pts // easy
 let txt = '   palavra   ';
 txt = trimLeft(txt);
 console.log(txt); // palavra   
@@ -34,7 +41,7 @@ console.assert(trimRight('  ifrs rio grande              ') === '  ifrs rio gran
 console.assert(trimRight('     ') === '');
 console.assert(trimRight('') === '');
 
-// 0.1 pts // easy to do, hard to figure it out how
+// 0.1 pts // easy to do, hard to figure it out how ????????
 // String, Number, RegExp, Math and Array methods, every **built-in** function not allowed
 // **in the function body**, including [index] and length operations!
 // just one line of code inside the function body (one `;`).
