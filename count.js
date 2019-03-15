@@ -2,14 +2,18 @@
 
 // 0.1 pts // easy
 // input: just one letters to count
-function count (string, letters){
+
+function count (string, letter){
     let counter = 0;
-    for (i = 0; i < string.length; i++) {
-        if (string[i] === letters) counter++;
+    for (let i = 0; i <= letter.length; i++){
+        for (let c = string.length; c >= i; c--){
+
+        }
     }
     return counter;
 }
-let str = 'divaloper';
+
+let str = 'divaloper;
 let c = count(str, 'a');
 console.log(c === 1);
 console.assert(c === 1);

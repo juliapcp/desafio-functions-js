@@ -5,17 +5,6 @@
 // unrestricted
 // input: a to z lowercase only,
 // without accents, special chars (symbols) and spaces
-function encrypt(msg, shift) {
-    const alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    let newmsg = '';
-    //msg = msg.toLowerCase();
-    for (i = 0; i < msg.length; i++) {
-        //if (alfabet.indexOf(msg[i]) !== -1){
-        newmsg += String.fromCharCode((msg.charCodeAt(i) - 97 + shift) % 26 + 97);
-        //}
-    }
-    return newmsg;
-}
 let msg = 'tads';
 let shift = 1;
 let resp = encrypt(msg, shift);
@@ -34,8 +23,12 @@ console.assert(resp === 'cjmb');
 // input: any character
 // desconsider any non-a-to-z (accented letters, spaces, special chars (symbols), etc) to encrypt
 // uppercase letters inputs must output lowercase letters
-console.assert(encrypt('BANANA', 3) === 'kjwjwj');
-console.assert(encrypt('teste criptografia', 3) === 'cnbcn larycxpajorj');
+// PATCH
+// console.assert(encrypt('BANANA', 3) === 'kjwjwj');
+// console.assert(encrypt('teste criptografia', 3) === 'cnbcn larycxpajorj');
+console.assert(encrypt('BANANA', 9) === 'kjwjwj');
+console.assert(encrypt('teste criptografia', 9) === 'cnbcn larycxpajorj');
+// -----
 console.assert(encrypt('@#%%&*^nEo*<>;; @', 15) === '@#%%&*^ctd*<>;; @');
 
 // 0.2 pts // medium
@@ -44,8 +37,13 @@ console.assert(encrypt('@#%%&*^nEo*<>;; @', 15) === '@#%%&*^ctd*<>;; @');
 // input: any character
 // desconsider any non-a-to-z (spaces, special chars (symbols), etc) to decrypt
 // output always in lowercase
-console.assert(decrypt('kjwjwj', 3) === 'banana');
-console.assert(decrypt('cnbcn larycxpajorj', 3) === 'teste criptografia');
+// PATCH
+// console.assert(decrypt('kjwjwj', 3) === 'banana');
+// console.assert(decrypt('cnbcn larycxpajorj', 3) === 'teste criptografia');
+// console.assert(decrypt('cnbcn larycxpajorj', 3) === 'teste criptografia');
+console.assert(decrypt('kjwjwj', 9) === 'banana');
+console.assert(decrypt('cnbcn larycxpajorj', 9) === 'teste criptografia');
+// -----
 console.assert(decrypt('@#%%&*^ctd*<>;; @', 15) === '@#%%&*^neo*<>;; @');
 
 // 0.5 pts // hard
