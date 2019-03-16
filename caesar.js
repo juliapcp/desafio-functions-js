@@ -21,7 +21,7 @@ function encrypt (string, n) {
             c++;
         }
         i++;
-    } while (i < string.length)
+    } while (i < string.length);
     return resp;
 }
 function decrypt (string, n) {
