@@ -1,5 +1,54 @@
 // caesar.js // 1.0 pts
 
+function encrypt (string, n) {
+    string = string.toLowerCase();
+    let resp = '';
+    let c = 0;
+    let i = 0;
+    const v = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    do {
+        while (c < v.length) {
+            if (string[i] === v[c]) {
+                resp += v[(c + n) % 26];
+                c = 0;
+                break;
+            }
+            else if (c === v.length - 1) {
+                resp += string[i];
+                c = 0;
+                break;
+            }
+            c++;
+        }
+        i++;
+    } while (i < string.length)
+    return resp;
+}
+function decrypt (string, n) {
+    string = string.toLowerCase();
+    let resp = '';
+    let c = 0;
+    let i = 0;
+    const v = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    do {
+        while (c < v.length) {
+            if (string[i] === v[c]) {
+                resp += v[(c - n + 26) % 26];
+                c = 0;
+                break;
+            }
+            else if (c === v.length - 1) {
+                resp += string[i];
+                c = 0;
+                break;
+            }
+            c++;
+        }
+        i++;
+    } while (i < string.length)
+    return resp;
+}
+
 // 0.1 pts // easy
 // encrypt a string
 // unrestricted

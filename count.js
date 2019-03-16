@@ -1,19 +1,31 @@
 // count.js // 0.6 pts
 
-// 0.1 pts // easy
-// input: just one letters to count
-
-function count (string, letter){
-    let counter = 0;
-    for (let i = 0; i <= letter.length; i++){
-        for (let c = string.length; c >= i; c--){
-
-        }
+function count (string, letter)  {
+    let counter1 = 0;
+    let counter2 = 0;
+    let c = 0;
+    for (let i = 0; i < string.length; i++){
+        c = 0;
+        if (string[i] === letter[c]){
+            counter1 = 0;
+            while (c < letter.length) {
+                if (string[i+c] === letter[c]){
+                    counter1 ++;
+                }
+                if (counter1 === letter.length){
+                    counter2 ++;
+                    break;
+                }
+                c++;
+            }
+        } 
     }
-    return counter;
+    return counter2;
 }
 
-let str = 'divaloper;
+// 0.1 pts // easy
+// input: just one letters to count
+let str = 'divaloper';
 let c = count(str, 'a');
 console.log(c === 1);
 console.assert(c === 1);
@@ -21,6 +33,7 @@ console.assert(count('banana', 'a') === 3);
 console.assert(count('banana', 'b') === 1);
 // case sensitive
 console.assert(count('Banana', 'b') === 0);
+
 
 // 0.2 pts // medium
 // input: string with one, two or more letterss
