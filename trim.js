@@ -41,7 +41,7 @@ console.assert(trimRight('  ifrs rio grande              ') === '  ifrs rio gran
 console.assert(trimRight('     ') === '');
 console.assert(trimRight('') === '');
 
-// 0.1 pts // easy to do, hard to figure it out how ????????
+// 0.1 pts // easy to do, hard to figure it out how
 // String, Number, RegExp, Math and Array methods, every **built-in** function not allowed
 // **in the function body**, including [index] and length operations!
 // just one line of code inside the function body (one `;`).

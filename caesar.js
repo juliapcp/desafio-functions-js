@@ -1,7 +1,29 @@
 // caesar.js // 1.0 pts
 
+function lowercase (str) {
+    const v = [['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']];
+    let c = 0
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        do {
+            if (str[i] === v[1][c]) {
+                result += v[0][c];
+                c = 0;
+                break;
+            }
+            else if (c === v[1].length - 1) {
+                result += str[i];
+                c = 0;
+                break;
+            }
+            c++;
+        } while (c < v[1].length);
+    }
+    return result;
+}
+
 function encrypt (string, n) {
-    string = string.toLowerCase();
+    string = lowercase(string);
     let resp = '';
     let c = 0;
     let i = 0;
@@ -24,8 +46,9 @@ function encrypt (string, n) {
     } while (i < string.length);
     return resp;
 }
+
 function decrypt (string, n) {
-    string = string.toLowerCase();
+    string = lowercase(string);
     let resp = '';
     let c = 0;
     let i = 0;
