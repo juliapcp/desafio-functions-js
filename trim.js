@@ -7,11 +7,18 @@ function trimLeft(txt){
     }
     return txt;
 }
+
 function trimRight(txt) {
-    for (let i = txt.length - 1; i >= 0 && (txt[i] === ' '); i--) {
-        txt = txt.substring(0, i);
+    let newtxt = '';
+    for (let i = txt.length - 1; i >= 0; i--) {
+        if (txt[i] !== ' '){
+            for (let c = 0; c <= i; c++) {
+                newtxt += txt[c];
+            }
+            break;
+        }
     }
-    return txt;
+    return newtxt;
 }
 
 function trim (txt){
